@@ -17,9 +17,8 @@ public class ExchangeRateService {
         this.client = HttpClient.newHttpClient();
     }
 
-    public String getRates(String baseCurrency) throws IOException, InterruptedException {
-
-        String url = BASE_URL + API_KEY + "/latest/" + baseCurrency;
+    public double convertirMoneda(String base, String destino, double monto) throws IOException, InterruptedException {
+        String url = BASE_URL + API_KEY + "/pair/" + base + "/" + destino;
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))
@@ -28,7 +27,12 @@ public class ExchangeRateService {
 
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-        return response.body();
+
+        com.google.gson.JsonObject json = com.google.gson.JsonParser.parseString(response.body()).getAsJsonObject();
+        double tasa = json.get("conversion_rate").getAsDouble();
+
+        return monto * tasa;
     }
+
 }
 
