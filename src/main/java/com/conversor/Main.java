@@ -8,7 +8,7 @@ public class Main {
 
         try {
             String json = service.getRates("USD");
-            System.out.println(json); // Acá deberías ver el JSON crudo en consola
+            System.out.println(json);
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }

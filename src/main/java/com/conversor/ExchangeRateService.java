@@ -18,7 +18,7 @@ public class ExchangeRateService {
     }
 
     public String getRates(String baseCurrency) throws IOException, InterruptedException {
-        // Ejemplo de baseCurrency: "USD"
+
         String url = BASE_URL + API_KEY + "/latest/" + baseCurrency;
 
         HttpRequest request = HttpRequest.newBuilder()
@@ -28,7 +28,7 @@ public class ExchangeRateService {
 
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-        return response.body(); // Devuelve el JSON como String
+        return response.body();
     }
 }
 
