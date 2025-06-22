@@ -25,18 +25,39 @@ public class Main {
                 System.out.print("Ingrese el monto: ");
                 double monto = scanner.nextDouble();
 
-                try {
-                    double resultado = switch (opcion) {
-                        case 1 -> service.convertirMoneda("USD", "ARS", monto);
-                        case 2 -> service.convertirMoneda("ARS", "USD", monto);
-                        case 3 -> service.convertirMoneda("USD", "JPY", monto);
-                        case 4 -> service.convertirMoneda("JPY", "USD", monto);
-                        case 5 -> service.convertirMoneda("USD", "KRW", monto);
-                        case 6 -> service.convertirMoneda("KRW", "USD", monto);
-                        default -> 0.0;
-                    };
-                    //System.out.println(monto + " " + base + " equivalen a " + resultado + " " + destino);
+                String base = "";
+                String destino = "";
 
+                switch (opcion) {
+                    case 1 -> {
+                        base = "USD";
+                        destino = "ARS";
+                    }
+                    case 2 -> {
+                        base = "ARS";
+                        destino = "USD";
+                    }
+                    case 3 -> {
+                        base = "USD";
+                        destino = "JPY";
+                    }
+                    case 4 -> {
+                        base = "JPY";
+                        destino = "USD";
+                    }
+                    case 5 -> {
+                        base = "USD";
+                        destino = "KRW";
+                    }
+                    case 6 -> {
+                        base = "KRW";
+                        destino = "USD";
+                    }
+                }
+
+                try {
+                    double resultado = service.convertirMoneda(base, destino, monto);
+                    System.out.println("El monto de " + monto + " " + base + " corresponde a " + resultado + " " + destino);
                 } catch (IOException | InterruptedException e) {
                     System.out.println("Error al convertir moneda.");
                     e.printStackTrace();
@@ -50,6 +71,5 @@ public class Main {
         } while (opcion != 7);
 
         System.out.println("Gracias por usar el conversor.");
-
     }
 }
