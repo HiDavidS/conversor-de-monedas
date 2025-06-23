@@ -3,6 +3,7 @@ Challenge ONE - Java - Back End
 ---
 
 ```markdown
+```
 # Conversor de Monedas 💱
 
 Aplicación de consola desarrollada en Java que permite convertir montos entre diferentes monedas utilizando la [ExchangeRate-API](https://www.exchangerate-api.com/).
@@ -61,6 +62,3 @@ Este proyecto fue desarrollado como parte de un desafío de aprendizaje y sirvi�
 ---
 
 Gracias por visitar el proyecto 🙌
-```
-
----
