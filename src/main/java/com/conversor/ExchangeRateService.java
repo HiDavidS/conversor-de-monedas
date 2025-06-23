@@ -8,7 +8,7 @@ import java.net.http.HttpResponse;
 
 public class ExchangeRateService {
 
-    private static final String API_KEY = "672f66dcdd0f2f24dd2ae410";
+    private static final String API_KEY = "TU_API_KEY_AQUI"; // Colocar tu API key aquí
     private static final String BASE_URL = "https://v6.exchangerate-api.com/v6/";
 
     private final HttpClient client;
